@@ -12,9 +12,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dialog Title"
+            android:text="Thông Tin Sinh Viên"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:padding="12dp"
-            android:background="@color/purple_700"
+            android:background="@color/orange"
             android:gravity="center"
             android:textColor="@color/white"/>
         <EditText
@@ -38,6 +40,7 @@
             <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="0dp"
+                android:background="@drawable/btn_background"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginRight="10dp"
@@ -47,6 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/btn_background"
                 android:text="Update"/>
         </LinearLayout>
 

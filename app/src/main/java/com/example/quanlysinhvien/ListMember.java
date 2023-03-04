@@ -13,7 +13,7 @@ import java.util.List;
 public class ListMember extends AppCompatActivity {
 
     private RecyclerView rcvMember;
-    private UserAdapter userAdapter;
+    private MemberAdapter memberAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +25,8 @@ public class ListMember extends AppCompatActivity {
         rcvMember = findViewById(R.id.rcv_member);
        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
        rcvMember.setLayoutManager(linearLayoutManager);
-       userAdapter = new UserAdapter(listUser);
-       rcvMember.setAdapter(userAdapter);
+       memberAdapter = new MemberAdapter(listUser);
+       rcvMember.setAdapter(memberAdapter);
     }
-    private List<User>getlistUser(){
-        List<User>list = new ArrayList<>();
-        List<User> listUser = (List<User>) getIntent().getExtras().get("members");
-        //listUser.size();
-        return list;
-    }
+
 }

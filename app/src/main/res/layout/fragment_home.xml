@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F8EEEC"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
@@ -37,7 +38,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Add User" />
+        android:background="@drawable/btn_background"
+        android:text="Thêm sinh viên" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_user"
         android:layout_width="match_parent"

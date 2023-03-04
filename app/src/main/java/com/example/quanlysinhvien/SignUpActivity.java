@@ -20,11 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
-
-    //private Dialog progressDialog;
     private EditText edtEmail, edtPassword;
     private ImageView btnSignUp;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

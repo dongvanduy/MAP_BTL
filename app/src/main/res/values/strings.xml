@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quanlysinhvien</string>
+    <string name="app_name"></string>
     <string name="nav_home">Home</string>
     <string name="nav_favorite">Groups</string>
     <string name="nav_history">Chating</string>
