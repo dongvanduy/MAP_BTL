@@ -98,19 +98,4 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 
-
-
-//    @Override
-//    public void afterGetData(List<Message> list, boolean newData) {
-//        if(newData){
-//            chatAdapter = new ChatAdapter(getBaseContext(), list);
-//            gridView.setAdapter(chatAdapter);
-//        }
-//    }
-//
-//    @Override
-//    public void afterSend() {
-//        fragmentChatBinding.sendInput.setText("");
-//    }
-
 }

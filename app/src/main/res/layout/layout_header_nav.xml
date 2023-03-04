@@ -13,13 +13,13 @@
         android:layout_height="80dp"
         android:id="@+id/img_avatar"
         android:src="@drawable/ic_avatardefault"
-        app:civ_border_width="2dp"
-        app:civ_circle_background_color="#FF000000"/>
+        app:civ_border_width="0.5dp"
+        app:civ_circle_background_color="#FFFFFF"/>
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ĐỖ TRỌNG TUẤN"
+        android:text="NAME"
         android:textSize="16dp"
         android:textStyle="bold"
         android:layout_marginTop="8dp"

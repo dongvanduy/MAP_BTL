@@ -23,19 +23,19 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="359dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/top_background1" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="357dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
-                android:text="Welcome\nBack"
+                android:text="Welcome to\nStudent Management"
                 android:textColor="#EA6D35"
-                android:textSize="40sp"
+                android:textSize="35sp"
                 android:textStyle="bold" />
 
             <EditText

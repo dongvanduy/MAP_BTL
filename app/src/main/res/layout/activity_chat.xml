@@ -37,12 +37,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/send_btn"
-        android:layout_width="249dp"
-        android:layout_height="46dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_marginTop="13dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/orange"
         android:text="Send"
+        android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
