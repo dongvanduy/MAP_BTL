@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quanlysinhvien.DialogFormAdd;
+import com.example.quanlysinhvien.LoadingProgress;
 import com.example.quanlysinhvien.MainActivity;
 import com.example.quanlysinhvien.R;
 import com.example.quanlysinhvien.User;
@@ -44,10 +45,13 @@ public class HomeFragment extends Fragment{
     private UserAdapter mUserAdapter;
     private List<User> mListUser;
     private FloatingActionButton fabAdd;
+    private LoadingProgress loadingProgress;
     @Nullable
     @Override
+    //thực hiện tạo diện
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         rcvUser = (RecyclerView)view.findViewById(R.id.rcv_user);
         fabAdd = (FloatingActionButton)view.findViewById(R.id.fab_add);
@@ -55,6 +59,7 @@ public class HomeFragment extends Fragment{
         rcvUser.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         rcvUser.addItemDecoration(dividerItemDecoration);
+        //
         //===========
         mListUser = new ArrayList<>();
         mUserAdapter = new UserAdapter(mListUser, new UserAdapter.IClickListener() {
@@ -74,6 +79,7 @@ public class HomeFragment extends Fragment{
 
 
         getListUserFromRealtimeDatabase();
+        //loadingProgress.dismiss();
         return view;
     }
 
@@ -122,6 +128,8 @@ public class HomeFragment extends Fragment{
         dialog.show();//Hiển thị lên màn hình
     }
     private void getListUserFromRealtimeDatabase() {
+        loadingProgress = new LoadingProgress();
+        loadingProgress.show(getActivity().getSupportFragmentManager(), "wait");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("list_user");
         Query query = myRef.orderByValue();
@@ -132,6 +140,7 @@ public class HomeFragment extends Fragment{
                 if (user != null) {
                     mListUser.add(user);
                     mUserAdapter.notifyDataSetChanged();
+                    loadingProgress.dismiss();
                 }
             }
             @Override
@@ -146,8 +155,8 @@ public class HomeFragment extends Fragment{
                     }
                 }
                 mUserAdapter.notifyDataSetChanged();
-            }
 
+            }
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 

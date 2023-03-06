@@ -27,7 +27,8 @@ public class SignInActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private ImageView btnSignIn;
     private FirebaseAuth mAuth;
-    private View view;
+    LoadingProgress loadingProgress;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -60,9 +61,12 @@ public class SignInActivity extends AppCompatActivity {
         if ((TextUtils.isEmpty(pass))){
             Toast.makeText(this, "Vui lòng nhập Password!", Toast.LENGTH_SHORT).show();
         }
+        loadingProgress = new LoadingProgress();
+        loadingProgress.show(getSupportFragmentManager(), "wait");
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                loadingProgress.dismiss();
                 if(task.isSuccessful()){
                     Toast.makeText(SignInActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignInActivity.this, MainActivity.class);
@@ -77,7 +81,6 @@ public class SignInActivity extends AppCompatActivity {
     private void initListener(){
         layoutSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
                 startActivity(intent);

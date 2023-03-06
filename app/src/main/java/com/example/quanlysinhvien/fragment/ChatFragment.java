@@ -56,7 +56,7 @@ public class ChatFragment extends Fragment {
                     String[] s = snapshotStudents.child(input.getText().toString())
                             .child("name").getValue().toString().split(" ");
                     ChatActivity.mssv = input.getText().toString();
-                    ChatActivity.name = s[s.length-1];
+                    ChatActivity.name = s[s.length - 1];
                     Intent intent = new Intent(getActivity(), ChatActivity.class);
                     startActivity(intent);
                 }else{

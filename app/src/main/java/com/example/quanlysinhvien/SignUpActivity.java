@@ -25,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private ImageView btnSignUp;
     private LinearLayout layoutSignIn;
-
+    private LoadingProgress loadingProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,6 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 onClickSignUp();
             }
         });
@@ -57,11 +56,16 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, "Vui lòng nhập Password!", Toast.LENGTH_SHORT).show();
         }
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        loadingProgress = new LoadingProgress();
+        loadingProgress.show(getSupportFragmentManager(), "wait");
         mAuth.createUserWithEmailAndPassword(strEmail, strPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //progressDialog.dismiss();
+                        loadingProgress.dismiss();
+
+
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
@@ -71,9 +75,11 @@ public class SignUpActivity extends AppCompatActivity {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
+
     }
 
     private void initUi(){

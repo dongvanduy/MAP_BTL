@@ -30,6 +30,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.quanlysinhvien.LoadingProgress;
 import com.example.quanlysinhvien.MainActivity;
 import com.example.quanlysinhvien.R;
 import com.example.quanlysinhvien.User;
@@ -56,6 +57,7 @@ public class MyProfileFragment extends Fragment{
     private Button btnUpdateProfile;
     private Uri mUri;
     private MainActivity mMainActivity;
+    LoadingProgress loadingProgress;
 
 
     @Nullable
@@ -83,6 +85,7 @@ public class MyProfileFragment extends Fragment{
                 onClickUpdateProfile();
             }
         });
+
     }
 
     public void setUri(Uri mUri){
@@ -118,7 +121,6 @@ public class MyProfileFragment extends Fragment{
             String[] permisstions = {Manifest.permission.READ_EXTERNAL_STORAGE};
             getActivity().requestPermissions(permisstions,MY_REQUEST_CODE);
         }
-
     }
     private void setUserInformation() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

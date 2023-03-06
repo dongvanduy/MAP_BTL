@@ -19,7 +19,6 @@ public class ListMember extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_member);
-
         List<User> listUser = (List<User>) getIntent().getExtras().get("members");
         listUser.size();
         rcvMember = findViewById(R.id.rcv_member);
