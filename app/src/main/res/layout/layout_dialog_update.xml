@@ -2,37 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#00000000">
+    android:background="@drawable/white_background">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@color/white"
+        android:background="@drawable/white_background"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thông Tin Sinh Viên"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:padding="12dp"
+            android:layout_height="67dp"
             android:background="@color/orange"
             android:gravity="center"
-            android:textColor="@color/white"/>
+            android:padding="12dp"
+            android:text="Thông Tin Sinh Viên"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <EditText
             android:id="@+id/edt_update_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginTop="20dp"
-            android:hint="New name"/>
+            android:hint="Họ Tên"/>
         <EditText
             android:id="@+id/edt_update_vanghoc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginTop="20dp"
-            android:hint="New name"/>
+            android:hint="Số buổi vắng"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
