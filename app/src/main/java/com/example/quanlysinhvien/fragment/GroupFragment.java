@@ -73,9 +73,7 @@ public class GroupFragment extends Fragment {
                                         Integer.valueOf(d.child("vanghoc").getValue().toString()),
                                         Integer.valueOf(d.child("group").getValue().toString())));
                             }
-
                         }
-
                         intent.putExtra("members",(Serializable) users);
                         startActivity(intent);
 

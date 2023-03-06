@@ -49,7 +49,6 @@ public class DialogFormAdd extends DialogFragment {
         edtId = v.findViewById(R.id.edt_add_id);
         btnAdd = v.findViewById(R.id.btn_add);
         btnCancel = v.findViewById(R.id.btn_cancel_add);
-
         edtName.setText(name);
         edtVang.setText(String.valueOf(soBuoiVang));
         edtId.setText(String.valueOf(id));

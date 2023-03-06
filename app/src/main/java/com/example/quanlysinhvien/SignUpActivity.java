@@ -54,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if ((TextUtils.isEmpty(strPassword))){
             Toast.makeText(this, "Vui lòng nhập Password!", Toast.LENGTH_SHORT).show();
+            return;
         }
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         loadingProgress = new LoadingProgress();

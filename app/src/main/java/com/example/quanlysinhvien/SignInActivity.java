@@ -60,6 +60,7 @@ public class SignInActivity extends AppCompatActivity {
         }
         if ((TextUtils.isEmpty(pass))){
             Toast.makeText(this, "Vui lòng nhập Password!", Toast.LENGTH_SHORT).show();
+            return;
         }
         loadingProgress = new LoadingProgress();
         loadingProgress.show(getSupportFragmentManager(), "wait");

@@ -48,10 +48,10 @@ public class HomeFragment extends Fragment{
     private LoadingProgress loadingProgress;
     @Nullable
     @Override
-    //thực hiện tạo diện
+
+    //thực hiện tạo giao diện(view), trả về view là giao diện file xml tương ứng fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         rcvUser = (RecyclerView)view.findViewById(R.id.rcv_user);
         fabAdd = (FloatingActionButton)view.findViewById(R.id.fab_add);
@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment{
 
 
         getListUserFromRealtimeDatabase();
-        //loadingProgress.dismiss();
         return view;
     }
 
@@ -99,7 +98,6 @@ public class HomeFragment extends Fragment{
         Button btnCancel = dialog.findViewById(R.id.btn_cancel);
         edtUpdateName.setText(user.getName());//hiển thị name ban đầu
         edtUpdateVangHoc.setText(String.valueOf(user.getVanghoc()));
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

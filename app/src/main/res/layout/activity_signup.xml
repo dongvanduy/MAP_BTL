@@ -112,7 +112,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Forget your password? Recovery it"
+                    android:text="Back..."
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#3B608C"
