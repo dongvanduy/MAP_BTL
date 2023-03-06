@@ -23,10 +23,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quanlysinhvien.DialogFormAdd;
 import com.example.quanlysinhvien.MainActivity;
 import com.example.quanlysinhvien.R;
 import com.example.quanlysinhvien.User;
 import com.example.quanlysinhvien.UserAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,20 +43,14 @@ public class HomeFragment extends Fragment{
     private RecyclerView rcvUser;
     private UserAdapter mUserAdapter;
     private List<User> mListUser;
-    private Button btnAddUser;
-    private EditText edtId;
-    private EditText edtName;
-    private EditText edtVanghoc;
+    private FloatingActionButton fabAdd;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         rcvUser = (RecyclerView)view.findViewById(R.id.rcv_user);
-        edtId = (EditText)view.findViewById(R.id.edt_id);
-        edtVanghoc = (EditText)view.findViewById(R.id.edt_vang_hoc_new);
-        btnAddUser = (Button)view.findViewById(R.id.btn_add_user);
-        edtName = (EditText)view.findViewById(R.id.edt_name_new);
+        fabAdd = (FloatingActionButton)view.findViewById(R.id.fab_add);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rcvUser.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
@@ -68,20 +64,17 @@ public class HomeFragment extends Fragment{
             }
         });
         rcvUser.setAdapter(mUserAdapter);
-        btnAddUser.setOnClickListener(new View.OnClickListener() {
+        fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(edtId.getText().toString().trim());
-                String name = edtName.getText().toString().trim();
-                int vang = Integer.parseInt(edtVanghoc.getText().toString().trim());
-                User user = new User(id, name, vang);
-                onClickAddUser(user);
-                //onClickAddALlUser();
+                DialogFormAdd dialogFrom = new DialogFormAdd();
+                dialogFrom.show(getActivity().getSupportFragmentManager(), "from");
             }
         });
+
+
         getListUserFromRealtimeDatabase();
         return view;
-
     }
 
     private void openDialogUpdateItem(User user) {
@@ -127,17 +120,6 @@ public class HomeFragment extends Fragment{
             }
         });
         dialog.show();//Hiển thị lên màn hình
-    }
-    private void onClickAddUser(User user) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("list_user");
-        String pathObject = String.valueOf(user.getId());
-        myRef.child(pathObject).setValue(user, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(getContext(), "Add success!", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
     private void getListUserFromRealtimeDatabase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();

@@ -58,7 +58,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         }
         return 0;
     }
-
     public class UserViewHolder extends RecyclerView.ViewHolder{
         private TextView tvId;
         private TextView tvName;

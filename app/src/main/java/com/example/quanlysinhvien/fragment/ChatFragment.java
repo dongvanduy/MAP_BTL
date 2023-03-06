@@ -52,7 +52,7 @@ public class ChatFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(snapshotStudents.hasChild(input.getText().toString())){
+                if(snapshotStudents.hasChild(input.getText().toString()) && input.getText().toString() != null){
                     String[] s = snapshotStudents.child(input.getText().toString())
                             .child("name").getValue().toString().split(" ");
                     ChatActivity.mssv = input.getText().toString();

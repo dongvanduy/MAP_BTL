@@ -70,7 +70,6 @@ public class ChatActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(getApplicationContext(), "Update data success", Toast.LENGTH_SHORT).show();
                                 input.setText("");
                             }
                         });
